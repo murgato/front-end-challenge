@@ -1,0 +1,21 @@
+.container-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+.container-button .button {
+  background: transparent;
+  border: none;
+  color: #5C16C5;
+  font-weight: bold;
+}
+
+.container-button .button.button-page {
+  width: 3rem;
+}
+
+.container-button .button.button-page.active {
+  border-bottom: 2px solid #5C16C5;
+}

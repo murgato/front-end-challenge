@@ -1,0 +1,170 @@
+.header-movies
+    background: #2D0C5E
+    color: #FFFFFF
+    font-family: 'Roboto'
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    padding: 0 30rem
+    text-align: center
+
+.label-header-Movies
+    font-size: 48px
+    color: #FFFFFF
+    font-weight: bold
+
+.title-filtros
+    font-size: 14px
+    text-transform: uppercase
+
+.button-genre
+    background: #FFFFFF
+    color: #000
+    min-width: 155px
+    min-height: 30px
+    margin: 10px
+    cursor: pointer
+    display: flex
+    justify-content: center
+    align-items: center
+    align-content: center
+    border-radius: 4px
+    justify-content: space-between
+    padding: 0 10px
+
+.button-genre.check
+    background: #D18000
+    color: white
+
+@supports (display: grid)
+    .container-genres
+        display: grid
+        grid-template-columns: repeat(10, minmax(10rem, auto))
+        justify-content: center
+        align-items: center
+    .container-movies
+        display: grid
+        grid-template-columns: minmax(200px, 1fr) 1fr 1fr minmax(200px, 1fr) minmax(200px, 1fr)
+        margin-top: 30px
+        justify-content: center
+        align-items: center
+        justify-items: center
+
+@supports (display: -ms-grid)
+    .container-genres
+        display: -ms-grid
+        grid-template-columns: repeat(3, 1fr)
+        justify-content: space-between
+
+.form-label
+    margin-left: 10px !important
+
+.container-mini-movie
+    display: flex
+    flex-direction: column
+    justify-content: center
+    margin-bottom: 12px
+    &:hover
+        cursor: pointer
+        animation: shadow-drop-2-bottom 0.5s normal
+
+a
+    color: black !important
+    text-decoration: none !important
+
+.img-mini-movie
+    height: 30rem
+    width: 22rem
+    border-radius: 10px
+
+.title-movie
+    max-width: auto
+
+.container-title
+    display: flex
+    flex-direction: column
+    height: 4rem
+
+@-webkit-keyframes shadow-drop-2-bottom
+  0% 
+    -webkit-transform: translateZ(0) translateY(0)
+    transform: translateZ(0) translateY(0)
+    -webkit-box-shadow: 0 0 0 0 transparent
+    box-shadow: 0 0 0 0 transparent
+
+  100% 
+    -webkit-transform: translateZ(50px) translateY(-12px)
+    transform: translateZ(50px) translateY(-12px)
+
+@keyframes shadow-drop-2-bottom
+    0%
+        -webkit-transform: translateZ(0) translateY(0)
+        transform: translateZ(0) translateY(0)
+        -webkit-box-shadow: 0 0 0 0 transparent
+        box-shadow: 0 0 0 0 transparent
+
+    100%
+        -webkit-transform: translateZ(50px) translateY(-12px)
+        transform: translateZ(50px) translateY(-12px)
+
+//ajuste responsividade
+
+@media only screen and (max-device-width: 1440px)
+    .header-movies
+        padding: 0 14rem
+    @supports (display: grid)
+        .container-genres
+            grid-template-columns: repeat(8, minmax(10rem, auto))
+
+        .container-movies
+            grid-template-columns: minmax(200px, 1fr) 1fr 1fr minmax(200px, 1fr)
+
+@media only screen and (max-device-width: 1024px)
+    .header-movies
+        padding: 0 14rem
+    @supports (display: grid)
+        .container-genres
+            grid-template-columns: repeat(4, minmax(10rem, auto))
+    @supports (display: grid)
+        .container-movies
+            grid-template-columns: 1fr 1fr 1fr
+    .img-mini-movie
+        height: 28rem
+        width: 20rem
+
+@media only screen and (max-device-width: 768px)
+    .header-movies
+        padding: 0 3rem
+
+    @supports (display: grid)
+        .container-genres
+            grid-template-columns: repeat(4, minmax(10rem, auto))
+
+        .container-movies
+            grid-template-columns: 1fr 1fr 1fr
+
+        .img-mini-movie
+            height: 24rem
+            width: 15rem
+
+        .title-movie
+            max-width: 12rem
+
+@media only screen and (max-device-width: 425px)
+    .header-movies
+        padding: 0 3rem
+
+    @supports (display: grid)
+        .container-genres
+            grid-template-columns: repeat(2, minmax(10rem, auto))
+
+        .container-movies
+            grid-template-columns: 1fr 1fr
+
+        .img-mini-movie
+            height: 19rem
+            width: 11rem
+
+        .title-movie
+            max-width: 12rem
