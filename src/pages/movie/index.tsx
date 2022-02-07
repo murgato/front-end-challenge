@@ -47,8 +47,19 @@ const Movie = () => {
         genres += `${genre.name}, `;
       }
     });
-
-    setInfoMovie(`${data} (BR) • ${genres} `);
+    let runtime;
+    if (movie.runtime > 0) {
+      let auxRuntime = movie.runtime / 60;
+      let DecimalAuxRuntime = auxRuntime - parseInt(auxRuntime.toString());
+      let hours = parseInt(auxRuntime.toString());
+      let minutes = DecimalAuxRuntime * 60;
+      runtime = `${hours}h ${Math.round(minutes)}m`;
+    }
+    setInfoMovie(
+      `${movie.certification} • ${data} (${movie.language}) • ${genres} ${
+        movie.runtime !== null ? `• ${runtime}` : ""
+      }`
+    );
   };
   const voteAveragePercent = () => {
     let percent = Math.round((100 * movie.vote_average) / 10);

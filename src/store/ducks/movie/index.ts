@@ -10,6 +10,9 @@ const INITIAL_STATE: IMovieStates = {
     poster_path: "",
     overview: "",
     genres: [],
+    certification: "L",
+    runtime: 0,
+    language: "BR",
   },
   credits: {
     cast: [],

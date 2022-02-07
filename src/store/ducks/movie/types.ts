@@ -17,6 +17,9 @@ export interface IMovie {
   poster_path: string;
   overview: string;
   genres: IGenre[];
+  certification: string;
+  runtime: number;
+  language:string
 }
 export interface IGenre {
   id: string | number;

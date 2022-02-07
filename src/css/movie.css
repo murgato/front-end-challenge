@@ -89,8 +89,6 @@
   min-height: 15rem;
   max-height: 15rem;
   padding: 10px;
-  overflow: scroll;
-  overflow-x: hidden;
 }
 
 .info .title-overview {
@@ -332,9 +330,6 @@
     max-width: 23rem;
     max-height: none;
   }
-  .title-movie {
-    max-width: 25rem;
-  }
   @supports (display: grid) {
     .info .conteiner-responsable {
       grid-template-columns: repeat(2, minmax(10rem, 16rem));
@@ -370,9 +365,6 @@
   .info {
     max-width: 21rem;
     margin: 0;
-  }
-  .title-movie {
-    max-width: 22rem;
   }
   @supports (display: grid) {
     .info .conteiner-responsable {
