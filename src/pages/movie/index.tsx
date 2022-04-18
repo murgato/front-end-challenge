@@ -7,6 +7,10 @@ import { ICrew, IMovieStates } from "../../store/ducks/movie/types";
 import "../../css/movie.css";
 import moment from "moment-timezone";
 import { MiniMovie } from "../../components";
+import useSetInfoMovie from "../../hooks/useSetInfoMovie";
+import useGetResponsable from "../../hooks/useGetResponsable";
+import useVoteAveragePercent from "../../hooks/useVoteAveragePercent";
+
 const Movie = () => {
   const { id } = useParams();
   const { movie, credits, trailer, moviesRecomedation }: IMovieStates =
@@ -14,10 +18,9 @@ const Movie = () => {
       //@ts-ignore
       (state) => state.movie
     );
-
-  const [infoMovie, setInfoMovie] = useState("");
-  const [voteAverage, setVoteAverage] = useState(30);
-  const [crew, SetCrew] = useState<ICrew[]>([]);
+  const { infoMovie, setInfo } = useSetInfoMovie();
+  const { crew, getResponsable } = useGetResponsable();
+  const { voteAverage, voteAveragePercent } = useVoteAveragePercent();
 
   useEffect(() => {
     action.clearMovie();
@@ -26,58 +29,17 @@ const Movie = () => {
 
   useEffect(() => {
     if (movie.id === 0 || movie.id !== Number(id)) return;
-    strInfoMovie();
-    voteAveragePercent();
+    //@ts-ignore
+    setInfo(movie);
+    voteAveragePercent(movie.vote_average);
     action.loadCredits(movie.id.toString());
     action.loadTrailer(movie.id.toString());
     action.loadMoviesRecomendation(movie.id.toString());
   }, [movie.id]);
 
   useEffect(() => {
-    if (credits.crew.length >= 0) getResponsable();
+    if (credits.crew.length >= 0) getResponsable(credits);
   }, [credits.crew]);
-
-  const strInfoMovie = () => {
-    let data = moment(new Date(movie.release_date)).format("DD/MM/YYYY");
-    let genres = ``;
-    movie.genres.forEach((genre, index) => {
-      if (index === movie.genres.length - 1) {
-        genres += genre.name;
-      } else {
-        genres += `${genre.name}, `;
-      }
-    });
-    let runtime;
-    if (movie.runtime > 0) {
-      let auxRuntime = movie.runtime / 60;
-      let DecimalAuxRuntime = auxRuntime - parseInt(auxRuntime.toString());
-      let hours = parseInt(auxRuntime.toString());
-      let minutes = DecimalAuxRuntime * 60;
-      runtime = `${hours}h ${Math.round(minutes)}m`;
-    }
-    setInfoMovie(
-      `${movie.certification} • ${data} (${movie.language}) • ${genres} ${
-        movie.runtime !== null ? `• ${runtime}` : ""
-      }`
-    );
-  };
-  const voteAveragePercent = () => {
-    let percent = Math.round((100 * movie.vote_average) / 10);
-    setVoteAverage(percent);
-  };
-
-  const getResponsable = () => {
-    let arrCharacters = credits.crew.filter(
-      (crew) => crew.job === "Characters"
-    );
-    let arrDirector = credits.crew.filter((crew) => crew.job === "Director");
-    let arrScreenplay = credits.crew.filter(
-      (crew) => crew.job === "Screenplay"
-    );
-
-    let finalArr = arrCharacters.concat(arrDirector.concat(arrScreenplay));
-    SetCrew(finalArr);
-  };
 
   return (
     <div>

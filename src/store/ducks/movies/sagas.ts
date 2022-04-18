@@ -1,12 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import { api } from "../../../services/api";
 import { key } from "../../../services/key";
-import {
-  setGeners,
-  setMovies,
-  setMoviesFiltered,
-  setPagination,
-} from "./actions";
+import { setGeners, setMovies, setPagination } from "./actions";
 import { IPagination } from "./types";
 
 export function* loadGenres(): any {
