@@ -1,5 +1,5 @@
 # front-end-challenge
-[Hosting](https://movies-213bb.web.app/movies)
+# Hosting: (https://movies-213bb.web.app/movies)
 
 # Development's setup
 
@@ -49,7 +49,4 @@
 ## [Momentjs](https://momentjs.com)
     
 ## [react-bootstrap](https://react-bootstrap.netlify.app)
-
 ## [@react-hook/window-size](https://www.npmjs.com/package/@react-hook/window-size)
-
-## [sass](https://sass-lang.com)
