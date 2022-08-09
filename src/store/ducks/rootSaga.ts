@@ -9,7 +9,8 @@ import { loadGenres, loadMovies } from "./movies/sagas";
 import { MovieTypes } from "./movie/types";
 import { MoviesTypes } from "./movies/types";
 
-export default function* rootSaga(): any {
+export default function* rootSaga() {
+  //@ts-ignore
   return yield all([
     takeLatest(MoviesTypes.LOAD_GENRES, loadGenres),
     takeLatest(MoviesTypes.LOAD_MOVIES, loadMovies),

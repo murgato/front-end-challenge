@@ -1,5 +1,6 @@
 # front-end-challenge
-    
+[Hosting](https://movies-213bb.web.app/movies)
+
 # Development's setup
 
 ## Build node modules:
@@ -12,7 +13,7 @@
 # Visual studio code extension  
 ## [Live Sass Compiler](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass#review-details)
 
-1. Go to File>Preferences>Settings or ctrl+,
+1. Go to File > Preferences > Settings or ctrl+,
 2. Search setting - sass format
     >![image](https://user-images.githubusercontent.com/77131209/152639146-cfb222a8-1077-43bd-ba49-f388a3a3e24e.png)
 
