@@ -9,6 +9,7 @@ export enum MovieTypes {
   LOAD_MOVIES_RECOMENDATION = "LOAD_MOVIES_RECOMENDATION",
   CLEAR_MOVIE = "CLEAR_MOVIE",
 }
+
 export interface IMovie {
   id: number;
   title: string;
@@ -19,21 +20,25 @@ export interface IMovie {
   genres: IGenre[];
   certification: string;
   runtime: number;
-  language:string
+  language: string;
 }
+
 export interface IGenre {
   id: string | number;
   name: string;
 }
+
 export interface ICast {
   character: string;
   name: string;
   profile_path: string;
 }
+
 export interface ICrew {
   name: string;
   job: string;
 }
+
 export interface ITrailer {
   name: string;
   key: string;
